@@ -1,0 +1,109 @@
+
+<html>
+<head>
+    <title>Create Request</title>
+    <style>
+    
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Centered container for the form */
+        .form-container {
+            background-color: #fff;
+            padding: 20px 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+            width: 400px;
+        }
+
+        /* Header styling */
+        h1 {
+            text-align: center;
+            color: #0078d4;
+        }
+
+        /* Label styling */
+        label {
+            font-size: 1em;
+            font-weight: bold;
+        }
+
+        /* Input and textarea styling */
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        /* Button styling */
+        button {
+            background-color: #0078d4;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #005bb5;
+        }
+
+        /* Back link styling */
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #0078d4;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Create a Service Request</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <label for="customer_name">Name:</label>
+            <input type="text" name="customer_name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" name="email" required>
+
+            <label for="request_type">Request Type:</label>
+            <input type="text" name="request_type" required>
+
+            <label for="details">Details:</label>
+            <textarea name="details" rows="4" cols="50"></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+        <a href="/">Go Back</a>
+    </div>
+</body>
+</html>
